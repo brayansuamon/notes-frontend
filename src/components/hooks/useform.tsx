@@ -18,19 +18,19 @@ const OpenForm: React.FC = ()=>{
   return(
     <div className="mx-6 w-full max-w-[700px] px-6 py-10 h-auto border-2">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full h-auto flex flex-col gap-4">
-       
+
         <div>Add Note</div>
-       
+
         {/* register your input into the hook by invoking the "register" function */}
         <input className="input" placeholder="Title" {...register("title")} />
         {/* errors will return when field validation fails  */}
-        {errors.title && <span>This field is required</span>}  
-        
+        {errors.title && <span>This field is required</span>}
+
         {/* include validation with required or other standard HTML validation rules */}
         <input className="input"  placeholder="Description" {...register("description", { required: true })} />
         {/* errors will return when field validation fails  */}
         {errors.description && <span>This field is required</span>}
-        
+
         {/* include validation with required or other standard HTML validation rules */}
         <input className="input" type="date" placeholder="Date" {...register("date", { required: true })} />
         {/* errors will return when field validation fails  */}
@@ -49,7 +49,7 @@ const OpenForm: React.FC = ()=>{
       {errors.status && <span>Please select a status</span>}
 
         <input className="button bg-gray-600" type="submit" />
-      </form>        
+      </form>
     </div>
 
   )

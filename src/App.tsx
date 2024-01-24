@@ -1,24 +1,25 @@
 
-import { useState } from 'react';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Header from './components/common/header/Header';
 import OpenForm from './components/hooks/useForm';
-
+import Home from './pages/Home/Home';
 
 
 function App() {
 
-  const [isComponentRendered, setComponentRendered] = useState<boolean>(false);
 
-  const renderComponent = () => {
-    setComponentRendered(true);
-  };
 
   return (
-    <div className="App w-full min-h-screen h-full flex items-center justify-center"> 
-    {isComponentRendered ? 
-    <OpenForm /> :  <button className='p-4 bg-gray-700 text-white' onClick={renderComponent}>Create Note</button>}
-    {/* <Card /> */}
-    </div>
+    <HashRouter>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/form-filling' element={<OpenForm />} />
+        <Route path='*' element={<p>Not found</p>} />
+      </Routes>
+    </HashRouter>
+
   );
 }
 
